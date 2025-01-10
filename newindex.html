@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new Kanban</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+        
+</head>
+
+<body>
+    <header class="Kanban_header ">
+        <div class="container Kanban-header-container">
+            <div class="kanban_logo">
+                <img src="assets/icon/kanban_logo.svg">
+            </div>
+            <div class="kanban_header_conntent">
+                <h3 class="kanban_header_heading">Platform Launch</h3>
+                <div class="kanban_button_content">
+                    <button class="kanban_header_button" id="add_task_btn">+ Add New Task</button>
+                    <div><img class="button_dots_icon" src="assets/icon/dots_icon.svg"></div>
+                    <div class="edit_delete_content">
+                        <h3 class="editHeading editCta">Edit Board</h3>
+                        <h3 class="editHeading delete-heading">Delete Board</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- add grid section starts -->
+
+        <section class="add_columns_section">
+            <div class="add_columns_container">
+                <div class="add_column_content ">
+                    <h4 class="add_columnn_heading">This board is empty. Create a new column to get started.</h4>
+                    <button class="add_columnn_cta board-cta" id="columnBoardBtn">+ Add New Column</button>
+                </div>
+                <div class="card_container">
+                    <div class="column_data" id="columnData">
+                        <!-- <div class="grid_cards">
+                            
+                        </div> -->
+                    </div>
+                    <div class="card_grid_data">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- card task modal -->
+        <section class="addtask_popup_content " id = "add_task_modal">
+            <div class="cross_cta_content">
+                <h3 class="addtask_popup_heading">Add New Task</h3>
+                <img class="close_popup_cta" id = "task_modal_close_btn" src="assets/icon/cross_icon.svg">
+            </div>
+            <form class="add_task_form">
+                <div class="newtask_form">
+                    <label class="form_label">Title</label>
+                    <input class="addtask_input task-input tittle-input" id="title" name="title" type="text"
+                        placeholder="e.g. Take coffee break">
+                        <span class="error_message"></span>
+                </div>
+                <div class="newtask_form">
+                    <label class="form_label">Description</label>
+                    <textarea class="addtask_input task-input discreption-input" id="discreption" rows="6" cols="50"
+                        placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."></textarea>
+                        <span class="error_message"></span>
+                </div>
+                <div class="newtask_form">
+                    <label class="form_label">Subtasks</label>
+                    <div class="form_subtask_content">
+                        <div class="form_subtasks">
+                            <input class="addtask_input task-input card-input-append subtask-input add-board-task" id="subtaskInput" type="text" placeholder="e.g. Take coffee break">
+                            <span class="cross_icon"><img src="assets/icon/cross_icon.svg" alt="cross-icon"></span>
+                        </div>
+                        <span class="error_message"></span>
+                        <!-- <div class="form_subtasks">
+                                <input class="addtask_input task-input subtask-input" type="text" placeholder="e.g. Take coffee break">
+                                <span class="cross_icon"><img  src="assets/icon/cross_icon.svg" alt="cross-icon"></span>
+                            </div> -->
+                    </div>
+                    <button class="form-add-sub-task" id="formAddSubtaskInput">+ Add New Subtask</button>
+                </div>
+                <div class="newtask_form creat-task-content">
+                    <label class="form_label">Status</label>
+                    <div class="dropdown_menue">
+                        <div class="dropdown_index">
+                            <input class="addtask_button task-input task-dropdown" id="statusInput" type="text">
+                            <span><img class="dropdown_icon" src="assets/icon/dropdown_arrow.svg" alt="cross-icon"></span>
+                            <span class="error_message"></span>
+                        </div>
+                        <ul class="dropdown_menue_content" id="dropDownMenue">
+                            <!-- <li class="dropdown_menue_li">todo</li>
+                            <li class="dropdown_menue_li">doing</li>
+                            <li class="dropdown_menue_li">done</li> -->
+                            <!-- <li class="dropdown_menue_li ">Todo</li>
+                                <li class="dropdown_menue_li ">doing</li>
+                                <li class="dropdown_menue_li ">done</li> -->
+                        </ul>
+                    </div>
+                    <button class="subtask_cta creat-task newtask-submit-cta" id="create_task_btn">Create Task</button>
+                    <button class="subtask_cta creat-task newtask-submit-cta" id="editTaskBtn">Edit Task</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- board card modal -->
+        <section class="addtask_popup_content add-new-board" id="boardForm">
+            <div class="cross_cta_content">
+                <h3 class="addtask_popup_heading">Add New Board</h3>
+                <img class="close_popup_cta" id = "board_close_btn" src="assets/icon/cross_icon.svg">
+            </div>
+            <form class="board_form">
+                <div class="newtask_form board-form-input">
+                    <label class="form_label">Board Columns </label>
+                    <div class="board_form_subtask">
+                        <div class="form_subtasks">
+                            <input class="addtask_input task-input subtask-input add-board-task" type="text"
+                                placeholder="e.g. Take coffee break">
+                            <span class="cross_icon"><img src="assets/icon/cross_icon.svg" alt="cross-icon"></span>
+                        </div>
+                    </div>
+                    <button class="add_sub_task board-add-subtask" id="addnewColumnInputCta">+ Add New Column</button>
+                </div>
+                <div class="newtask_form board-form-input">
+                    <button class="subtask_cta creat-task change-new-board board_reload" id = "createBoardBtn">Create New Board</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script id="handlebarTemplate" type="text/x-handlebars-template">
+        
+        {{#each this}}
+        <div class="dragable_div">
+            <p>{{statusValue}}</p>
+            {{#each items}}
+            <div class="grid_cards" draggable="true" data-id="{{id}}">
+                <h3 class="grid_cards_tittle">{{title}}</h3>
+                <p class="grid_cards_subtask">{{subtask}}</p>
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
+    </script>
+
+    <script id="dropdownTemplate" type="text/x-handlebars-template">
+        {{#each this}}
+        <li class="dropdown_menue_li">{{statusValue}}</li>
+        {{/each}}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="assets/script.js/index.js"></script>
+</body>
+
+</html>
